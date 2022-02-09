@@ -22,34 +22,55 @@ class _bonAppetitState extends State<bonAppetit>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255,245,206,199),//light pink
+      backgroundColor: Color.fromARGB(255, 253, 218, 211),//light pink
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255,255,178,132),//dark orange
-        title: new Center(
-          child: Text('Dishes', 
-              style: TextStyle(fontFamily: 'Gloria'),),
-        )
-      ),
-      body: new Center(
-         child: getWidget(Number_of_dishes)
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
+           centerTitle: true,
+           toolbarHeight: kToolbarHeight*1.8,
+           backgroundColor: Color.fromARGB(255, 253, 166, 131),//dark orange
+           title: new Center(
+           child: Text('Dishes', 
+           style: TextStyle(fontFamily: 'Gloria', 
+           color: Color.fromARGB(255, 230, 104, 102),
+           fontWeight: FontWeight.bold,
+           fontSize: 50),),
+        ),
+        actions: <Widget>[
+                 Padding(
+                 padding: EdgeInsets.only(right: 50),
+                 child: IconButton(
+                   icon: Icon(Icons.add_circle, size: 70,),
+                   tooltip: 'Add a new dish',
+                   onPressed: () {
           setState(() {
             Number_of_dishes ++;
           });
         },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.red[100],
+                 ),
       ),
+              ],
+          ),
+    
+      body: new Center(
+         child: getWidget(Number_of_dishes)
+      ),
+      
     );
   }
 }
 
 Widget getWidget(int Number_of_dishes) {
   if (Number_of_dishes == 0){
-    return Text('Use the '+' button to add some new dish');
+    return Padding(
+      padding:EdgeInsets.fromLTRB(35, 0, 35, 0),
+      child:Text('Use the + button to add some new dish',
+    style: TextStyle(fontFamily: 'Gloria', 
+           color: Color.fromARGB(255, 199, 77, 75),
+           fontWeight: FontWeight.bold,
+           fontSize: 30),),
+    );
   } else {
     return Text('$Number_of_dishes');
   }
 }
+
+    
