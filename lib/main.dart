@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'homePage.dart';
 import 'database.dart';
 
-void main() => runApp(MaterialApp(
-      home: bonAppetit(
+void main() {
+  runApp(
+    MaterialApp(
+      home: HomePage(
         db: database(),
       ),
-    ));
+    ),
+  );
+}
 
 //color values:
 //dark pink: Color.fromARGB(255,231,151,150)

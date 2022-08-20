@@ -2,14 +2,14 @@ import 'dish.dart';
 
 class database {
   late int number;
-  late List<dish> dishes;
-  database(){
+  late List<Dish> dishes;
+  database() {
     this.number = 0;
-    this.dishes = List<dish>.filled(0,dish('',0), growable: true);
+    this.dishes = [];
   }
   addDish(String name, int type){
-    this.dishes.add(dish(name, type));
-    number++;
+    this.dishes.add(Dish(n:name, t:type));
+    this.number++;
   }
 
 }

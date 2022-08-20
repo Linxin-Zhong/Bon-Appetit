@@ -4,7 +4,7 @@ import 'dish.dart';
 
 
 class NewDishScreen extends StatefulWidget {
-  database db;
+  final database db;
   NewDishScreen({required this.db});
   @override
   _NewDishScreenState createState() => _NewDishScreenState(db: this.db);
@@ -51,16 +51,16 @@ class _NewDishScreenState extends State<NewDishScreen> {
             Container(
               child: TextField(
                 decoration: InputDecoration(
-                labelText: 'Dish Name',
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                  Radius.circular(15),
+                  labelText: 'Dish Name',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 230, 104, 102),
+                      width: 2,
+                    ),
                   ),
-                  borderSide: BorderSide(
-                  color: Color.fromARGB(255, 230, 104, 102),
-                  width: 2,
-                  ),
-                ),
                 ),
                 onChanged: (val) {
                   NewDishName = val;
@@ -71,11 +71,11 @@ class _NewDishScreenState extends State<NewDishScreen> {
               child: new DropdownButton(
                 value: inputValue,
                 items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(), 
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(), 
                 onChanged: (String? newValue) { 
                   setState(() {
                     inputValue= newValue!;
