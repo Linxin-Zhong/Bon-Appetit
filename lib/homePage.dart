@@ -7,7 +7,7 @@ import 'dishDetail.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  final database db;
+  final DataBase db;
   HomePage({required this.db});
   _HomePageState createState() => _HomePageState(db: this.db);
 }
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   static const int main = 4;
   static const int breakfast = 5;
   
-  database db;
+  DataBase db;
   _HomePageState({required this.db});
 
   @override
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => NewDishScreen(db: this.db)),
-                ) as database;
+                ) as DataBase;
                 db.number = dataFromNewDishScreen.number;
                 setState(() {
                   //refresh

@@ -4,7 +4,7 @@ import 'dish.dart';
 
 
 class NewDishScreen extends StatefulWidget {
-  final database db;
+  final DataBase db;
   NewDishScreen({required this.db});
   @override
   _NewDishScreenState createState() => _NewDishScreenState(db: this.db);
@@ -17,7 +17,7 @@ class _NewDishScreenState extends State<NewDishScreen> {
   var items = <String>['Meat', 'Vegetable', 'Soup', 'Dessert', 'Main', 'Breakfast'];
   String inputValue = 'Meat';
 
-  database db;
+  DataBase db;
   _NewDishScreenState({required this.db});
   @override
   Widget build(BuildContext context) {
@@ -88,8 +88,24 @@ class _NewDishScreenState extends State<NewDishScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          db.addDish(NewDishName, IType2(inputValue));
-          Navigator.pop(context, this.db); // data back to the first screen},
+          if (NewDishName.isNotEmpty && !db.names.contains(NewDishName)) {
+            db.addDish(NewDishName, IType2(inputValue));
+            Navigator.pop(context, this.db); // data back to the first screen},
+          } else {
+            showDialog<String> (
+              context: context,
+              builder: ((context) => AlertDialog(
+                title: const Text('Missing or Duplicate dish name.'),
+                content: const Text('Please try another name.'),
+                actions: <Widget> [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('OK')
+                  )
+                ],
+              ))
+            );
+          }
         },
         label: const Text('save'),
         backgroundColor: Colors.pink,

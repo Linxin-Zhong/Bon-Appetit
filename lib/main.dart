@@ -6,7 +6,7 @@ void main() {
   runApp(
     MaterialApp(
       home: HomePage(
-        db: database(),
+        db: DataBase(),
       ),
     ),
   );
