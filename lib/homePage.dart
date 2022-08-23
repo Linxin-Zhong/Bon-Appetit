@@ -3,6 +3,8 @@ import 'database.dart';
 import 'newDishPage.dart';
 import 'dish.dart';
 import 'dishDetail.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,13 +36,15 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: kToolbarHeight * 1.8,
         backgroundColor: Color.fromARGB(255, 253, 166, 131), //dark orange
         title: new Center(
-          child: Text(
-            'YUM!',
-            style: TextStyle(
-                fontFamily: 'Gloria',
-                color: Color.fromARGB(255, 230, 104, 102),
-                fontWeight: FontWeight.bold,
-                fontSize: 50),
+          child: AutoSizeText(
+            'Dish List',
+            style: GoogleFonts.righteous(
+              textStyle: TextStyle(
+                  // fontFamily: 'Gloria',
+                  color: Color.fromARGB(255, 230, 104, 102),
+                  // fontWeight: FontWeight.bold,
+                  fontSize: 50
+              ))
           ),
         ),
         actions: <Widget>[
@@ -75,12 +79,14 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.fromLTRB(35, 0, 35, 0),
             child: Text(
               'Use the + button to add some cool new dishes :)',
-              style: TextStyle(
-                fontFamily: 'Gloria',
-                color: Color.fromARGB(255, 170, 170, 170),
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-              ),
+              style: GoogleFonts.exo(
+                textStyle: TextStyle(
+                  // fontFamily: 'Gloria',
+                  color: Color.fromARGB(255, 170, 170, 170),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              )
             ),
           ),
         ):
