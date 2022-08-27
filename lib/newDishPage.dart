@@ -47,6 +47,7 @@ class _NewDishScreenState extends State<NewDishScreen> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               child: TextField(

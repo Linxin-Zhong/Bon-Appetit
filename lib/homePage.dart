@@ -1,3 +1,4 @@
+import 'package:first_app/randomMenuPage.dart';
 import 'package:flutter/material.dart';
 import 'database.dart';
 import 'newDishPage.dart';
@@ -121,107 +122,17 @@ class _HomePageState extends State<HomePage> {
             ));
           }
         ),
+      floatingActionButton: FloatingActionButton.extended(
+        
+        onPressed: () {
+           Navigator.push(
+           context,
+           MaterialPageRoute(builder: (context) => randomMenuPage(db: this.db)),
+          );
+        }, 
+        label: Text('Generate Random Menu'),
+      ),
     );
   }
 }
 
-// Widget FirstPageBodyLayout(database db, BuildContext context, double widthOfPage, double heightOfPage) {
-//   if (db.number == 0) {
-//     return Center(
-//       child: Padding(
-//         padding: EdgeInsets.fromLTRB(35, 0, 35, 0),
-//         child: Text(
-//           'Use the + button to add some cool new dishes :)',
-//           style: TextStyle(
-//               fontFamily: 'Gloria',
-//               color: Color.fromARGB(255, 170, 170, 170),
-//               fontWeight: FontWeight.bold,
-//               fontSize: 30,
-//           ),
-//         ),
-//       ),
-//     );
-//   } else {
-//     return ListView.builder(
-//       itemCount: db.number,
-//       itemBuilder: (context, index) {
-//         final Dish dish = db.dishes[index];
-//         return Dismissible(
-//           key: Key(dish),
-//           onDismissed: (direction) {
-//             setState(() {
-//               db.dishes.removeAt(index);
-//             });
-//             ScaffoldMessenger.of(context)
-//               .showSnackBar(SnackBar(content: Text('item removed.')));
-//           },
-//           child: Card(
-//             child: ListTile(
-//               title: Text(dish.name),
-//               subtitle: Text(dish.SType()),
-//               onTap: () {
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder:(context) {
-//                       return DishDetailPage(dish);
-//                     },
-//                 ));
-//               },
-//             )
-//         ));
-//       }
-//     );
-//     // return Center(
-//     //   child: Column(
-//     //     children: [
-//     //       for (var i = 0; i < db.number; i++) EachDish(db, i, widthOfPage, heightOfPage),
-//     //     ],
-//     //   )
-//     // );
-//   }
-// }
-
-// Widget EachDish(database db, int i, double widthOfPage, double heightOfPage) {
-//   return Padding(
-//     padding: EdgeInsets.all(30),
-//     child: Container(
-//     width: 0.9 * widthOfPage,
-//     height: 0.15 * heightOfPage,
-//     decoration: BoxDecoration(
-//       color: Colors.white,
-//       border: Border.all(
-//         color:Colors.white,
-//       ),
-//       borderRadius: BorderRadius.all(Radius.circular(20)),
-//     ),
-//     child: Column(
-//       children: [
-//         Container(
-//           child: Text(
-//             db.dishes[i].name,
-//             textAlign: TextAlign.center,
-//             style: TextStyle (
-//               fontFamily: 'Gloria', 
-//               color: Color.fromARGB(255, 199, 77, 75),
-//               fontWeight: FontWeight.bold,
-//               fontSize: 20
-//             ),
-//           ),
-//         ),
-//         Container(
-//            child: Text(
-//             db.dishes[i].SType(),
-//             textAlign: TextAlign.center,
-//             style: TextStyle (
-//               fontFamily: 'Gloria', 
-//               color: Color.fromARGB(255, 199, 77, 75),
-//               fontSize: 15
-//             ),
-//           ),
-//         ),
-//       ]
-//     )
-//   ),
-//   );
-// }
