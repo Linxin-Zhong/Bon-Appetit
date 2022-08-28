@@ -7,13 +7,13 @@ class randomMenuPage extends StatefulWidget {
   final DataBase db;
   randomMenuPage({required this.db});
   @override
-  _NewDishScreenState createState() => _NewDishScreenState(db: this.db);
+  _randomMenuState createState() => _randomMenuState(db: this.db);
 }
 
-class _NewDishScreenState extends State<randomMenuPage> {
+class _randomMenuState extends State<randomMenuPage> {
 
   DataBase db;
-  _NewDishScreenState({required this.db});
+  _randomMenuState({required this.db});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

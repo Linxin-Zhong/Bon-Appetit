@@ -6,7 +6,6 @@ class Dish {
   static const int soup = 2;
   static const int dessert = 3;
   static const int main = 4;
-  static const int breakfast = 5;
 
   late String name;
   late int type;
@@ -27,7 +26,6 @@ class Dish {
       case soup: st = "Soup"; break;
       case dessert: st = "Dessert"; break;
       case main: st = "Main"; break;
-      case breakfast: st = "Breakfast"; break;
     }
     return st;
   }

@@ -14,7 +14,7 @@ class _NewDishScreenState extends State<NewDishScreen> {
 
   String NewDishName = '';
   int NewDishType = -1;
-  var items = <String>['Meat', 'Vegetable', 'Soup', 'Dessert', 'Main', 'Breakfast'];
+  var items = <String>['Meat', 'Vegetable', 'Soup', 'Dessert', 'Main'];
   String inputValue = 'Meat';
 
   DataBase db;

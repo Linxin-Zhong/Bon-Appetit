@@ -2,6 +2,8 @@ import 'package:first_app/randomMenuPage.dart';
 import 'package:flutter/material.dart';
 import 'database.dart';
 import 'newDishPage.dart';
+import 'randomMenuPage.dart';
+import 'settingsPage.dart';
 import 'dish.dart';
 import 'dishDetail.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   static const int soup = 2;
   static const int dessert = 3;
   static const int main = 4;
-  static const int breakfast = 5;
   
   DataBase db;
   _HomePageState({required this.db});
@@ -70,7 +71,26 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
+        
         ],
+        leading: IconButton(
+              icon: Icon(
+                Icons.settings,
+                size: 70,
+              ),
+              tooltip: 'Settings',
+              onPressed: () async {
+                final dataFromSettingsScreen = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => settingsPage(db: this.db)),
+                ) as DataBase;
+                //***db.number = dataFromNewDishScreen.number;
+                setState(() {
+                  //refresh
+                });
+              },
+            ),
       ),
 
       // body: FirstPageBodyLayout(db, context, widthOfPage, heightOfPage),
