@@ -1,11 +1,17 @@
+
 import 'dish.dart';
 
+ const int MEAT = 0;
+   const int VEGE = 1;
+   const int SOUP = 2;
+   const int DESSERT = 3;
+   const int MAIN = 4;
+   const int BREAKFAST = 0;
+   const int LUNCH = 1;
+   const int DINNER = 2;
+  
 class DataBase {
-  static const int meat = 0;
-  static const int vege = 1;
-  static const int soup = 2;
-  static const int dessert = 3;
-  static const int main = 4;
+  
 
   late int number;
   late List<Dish> dishes;
@@ -35,37 +41,72 @@ DataBase() {
     this.typeLimit[type]++;
   }
 
+  bool ableToChange(int meal, int type, String sign){
+    if (sign == '+' && typeLimit[type] == 0){
+      return false;
+    } else if (sign == '-'){
+      switch (type) {
+       case MEAT:
+         if (meatComb[meal] <= 0){
+          return false;
+         } 
+         break;
+       case VEGE:
+       if (vegeComb[meal] <= 0){
+          return false;
+         } 
+         break;
+       case SOUP:
+       if (soupComb[meal] <= 0){
+          return false;
+         } 
+         break;
+       case DESSERT:
+       if (dessertComb[meal] <= 0){
+          return false;
+         } 
+         break;
+       case MAIN:
+       if (mainComb[meal] <= 0){
+          return false;
+         } 
+         break;
+      }
+    } 
+    return true;
+  }
+
    editCombinations(int meal, int type, String sign){
      switch (type) {
-       case meat:
+       case MEAT:
          if (sign == '+'){
           meatComb[meal]++;
          } else {
           meatComb[meal]--;
          }
          break;
-       case vege:
+       case VEGE:
          if (sign == '+'){
           vegeComb[meal]++;
          } else {
           vegeComb[meal]--;
          }
          break;
-       case soup:
+       case SOUP:
          if (sign == '+'){
           soupComb[meal]++;
          } else {
           soupComb[meal]--;
          }
          break;
-       case dessert:
+       case DESSERT:
          if (sign == '+'){
           dessertComb[meal]++;
          } else {
           dessertComb[meal]--;
          }
          break;
-       case main:
+       case MAIN:
          if (sign == '+'){
           mainComb[meal]++;
          } else {
