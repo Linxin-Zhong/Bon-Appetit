@@ -119,8 +119,7 @@ class _HomePageState extends State<HomePage> {
               key: Key(dish.name),
               onDismissed: (direction) {
                 setState(() {
-                  db.dishes.removeAt(index);
-                  db.number--;
+                  db.removeDish(dish.name, index, dish.type);
                 });
                 ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text('item removed.')));

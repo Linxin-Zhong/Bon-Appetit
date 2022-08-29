@@ -43,35 +43,45 @@ class _settingsState extends State<settingsPage> {
                               Column(children: [
                                 Text('Meat'),
                                 Row(children: [
-                                  FloatingActionButton(
-                                      child: const Icon(Icons.minimize),
-                                      onPressed: () {
-                                        if (!db.ableToChange(
-                                            BREAKFAST, MEAT, '-')) {
-                                          cantDecrease();
-                                        } else {
-                                          db.editCombinations(
-                                              BREAKFAST, MEAT, '-');
-                                        }
-                                        setState(() {
-                                          //refresh
-                                        });
-                                      }),
+                                  Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: (FittedBox(
+                                        child: FloatingActionButton(
+                                            child: const Icon(Icons.minimize),
+                                            onPressed: () {
+                                              if (!db.ableToChange(
+                                                  BREAKFAST, MEAT, '-')) {
+                                                cantDecrease();
+                                              } else {
+                                                db.editCombinations(
+                                                    BREAKFAST, MEAT, '-');
+                                              }
+                                              setState(() {
+                                                //refresh
+                                              });
+                                            }),
+                                      ))),
                                   Text(db.meatComb[0].toString()),
-                                  FloatingActionButton(
-                                      child: const Icon(Icons.add),
-                                      onPressed: () {
-                                        if (!db.ableToChange(
-                                            BREAKFAST, MEAT, '+')) {
-                                          cantAdd();
-                                        } else {
-                                          db.editCombinations(
-                                              BREAKFAST, MEAT, '+');
-                                        }
-                                        setState(() {
-                                          //refresh
-                                        });
-                                      }),
+                                  Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: (FittedBox(
+                                        child: FloatingActionButton(
+                                            child: const Icon(Icons.add),
+                                            onPressed: () {
+                                              if (!db.ableToChange(
+                                                  BREAKFAST, MEAT, '+')) {
+                                                cantAdd();
+                                              } else {
+                                                db.editCombinations(
+                                                    BREAKFAST, MEAT, '+');
+                                              }
+                                              setState(() {
+                                                //refresh
+                                              });
+                                            }),
+                                      ))),
                                 ])
                               ])
                             ],

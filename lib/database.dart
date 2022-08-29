@@ -41,6 +41,13 @@ DataBase() {
     this.typeLimit[type]++;
   }
 
+  removeDish(String name, int index, int type){
+    this.number--;
+    this.dishes.removeAt(index);
+    this.names.remove(name);
+    this.typeLimit[type]--;
+  }
+
   bool ableToChange(int meal, int type, String sign){
     if (sign == '+' && typeLimit[type] == 0){
       return false;
