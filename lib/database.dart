@@ -46,6 +46,15 @@ DataBase() {
     this.dishes.removeAt(index);
     this.names.remove(name);
     this.typeLimit[type]--;
+    if (this.typeLimit[type] == 0){
+      switch (type) {
+        case MEAT: meatComb = [0,0,0]; break;
+        case VEGE: vegeComb = [0,0,0]; break;
+        case SOUP: soupComb = [0,0,0]; break;
+        case DESSERT: dessertComb = [0,0,0]; break;
+        case MAIN: mainComb = [0,0,0]; break;
+      }
+    }
   }
 
   bool ableToChange(int meal, int type, String sign){
