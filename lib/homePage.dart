@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color.fromARGB(255, 253, 166, 131), //dark orange
         title: new Center(
           child: AutoSizeText(
-            'Dish List',
+             'Dish List',
             style: GoogleFonts.righteous(
               textStyle: TextStyle(
                   // fontFamily: 'Gloria',
@@ -86,12 +86,10 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(
                       builder: (context) => settingsPage(db: this.db)),
                 ) as DataBase;
-                //***db.number = dataFromNewDishScreen.number;
-                setState(() {
-                  //refresh
-                });
+                setState(() {});
               },
             ),
+        
       ),
 
       // body: FirstPageBodyLayout(db, context, widthOfPage, heightOfPage),
@@ -143,15 +141,16 @@ class _HomePageState extends State<HomePage> {
           }
         ),
       floatingActionButton: FloatingActionButton.extended(
-        
         onPressed: () {
-           Navigator.push(
+          this.db.generatRandomMenu();
+          Navigator.push(
            context,
            MaterialPageRoute(builder: (context) => randomMenuPage(db: this.db)),
           );
         }, 
-        label: Text('Generate Random Menu'),
+        label: Text('Random Menu Page'),
       ),
+      
     );
   }
 }

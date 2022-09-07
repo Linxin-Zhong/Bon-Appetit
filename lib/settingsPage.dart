@@ -10,7 +10,6 @@ class settingsPage extends StatefulWidget {
 }
 
 class _settingsState extends State<settingsPage> {
-  double l = 30.0;
   DataBase db;
   _settingsState({required this.db});
   @override

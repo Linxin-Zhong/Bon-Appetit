@@ -29,6 +29,10 @@ class Dish {
     }
     return st;
   }
+
+  String getName(){
+    return this.name;
+  }
   
 }
 
