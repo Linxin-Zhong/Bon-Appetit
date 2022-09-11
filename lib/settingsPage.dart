@@ -14,6 +14,7 @@ class _settingsState extends State<settingsPage> {
   _settingsState({required this.db});
   @override
   Widget build(BuildContext context) {
+    db. l = MediaQuery.of(context).size.width/18;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -32,12 +33,13 @@ class _settingsState extends State<settingsPage> {
             children: [
               Flexible(
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(db.l/2),
                   child: Align(
                       alignment: Alignment.topCenter,
                       child: Column(
                         children: [
-                          Text('Breakfast'),
+                          Padding(child: Text('Breakfast'),
+                           padding: EdgeInsets.only(bottom:db.l/5)),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -54,12 +56,15 @@ class _settingsState extends State<settingsPage> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(db.l/2),
                   child: Align(
                       alignment: Alignment.topCenter,
                       child: Column(
                         children: [
-                          Text('Lunch'),
+                          Padding(
+                            child: Text("Lunch"),
+                            padding: EdgeInsets.only(bottom:db.l/5)
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -76,12 +81,15 @@ class _settingsState extends State<settingsPage> {
               ),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(db.l/2),
                   child: Align(
                       alignment: Alignment.topCenter,
                       child: Column(
                         children: [
-                          Text('Dinner'),
+                          Padding(
+                            child: Text("Dinner"),
+                            padding: EdgeInsets.only(bottom:db.l/5)
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -104,15 +112,16 @@ class _settingsState extends State<settingsPage> {
   }
 
   Widget numEditor(int meal, int type, int buttonIndex) {
+    db. l = MediaQuery.of(context).size.width/35;
     int buttonIndex2 = buttonIndex+1;
     return Padding(
-      padding: EdgeInsets.all(l / 2),
+      padding: EdgeInsets.symmetric(horizontal: db.l/2),
       child: Column(children: [
         Text(typeName(type)),
         Row(children: [
           Container(
-              height: l,
-              width: l,
+              height: db.l*3/2,
+              width: db.l*3/2,
               child: (FittedBox(
                 child: FloatingActionButton(
                     heroTag: buttonIndex.toString(),
@@ -129,14 +138,14 @@ class _settingsState extends State<settingsPage> {
                     }),
               ))),
           Container(
-              height: l,
-              width: l,
+              height: db.l,
+              width: db.l,
               child: Align(
                   alignment: Alignment.center,
                   child: Text(typeNum(meal, type)))),
           Container(
-              height: l,
-              width: l,
+            height: db.l*3/2,
+              width: db.l*3/2,
               child: (FittedBox(
                 child: FloatingActionButton(
                     heroTag: buttonIndex2.toString(),

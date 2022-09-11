@@ -1,3 +1,7 @@
+
+
+import 'package:flutter/material.dart';
+
 import 'dish.dart';
 import 'dart:math';
 
@@ -9,9 +13,10 @@ const int MAIN = 4;
 const int BREAKFAST = 0;
 const int LUNCH = 1;
 const int DINNER = 2;
-const double l = 30.0;
 
 class DataBase {
+  
+  double l = 30;
   late int number;
   late List<Dish> dishes;
   late List<String> names;

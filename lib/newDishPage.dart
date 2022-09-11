@@ -21,6 +21,7 @@ class _NewDishScreenState extends State<NewDishScreen> {
   _NewDishScreenState({required this.db});
   @override
   Widget build(BuildContext context) {
+    db. l = MediaQuery.of(context).size.width/15;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 235, 231), //light pink
       appBar: AppBar(
