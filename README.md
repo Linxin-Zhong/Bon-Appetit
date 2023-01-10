@@ -1,16 +1,3 @@
-# first_app
+# Bon-appetit(Currently in process)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+An app that helps generate random weekly menu and corresponding grocery shopping list based on user's customized settings such as food types combionations for each meal, and user defined plates and materials. This app is developed with Dart and Google Flutter, and it supports multiple platforms such as ios, android and web. By this time the function of generate random menu based on user defined combinations for web platform is done, and the shopping list generation page and the page layout for android and ios platforms are still in process. 
